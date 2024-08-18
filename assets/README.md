@@ -1,3 +1,8 @@
+
+```bash
+echo 'permit persist :wheel' | doas tee /etc/doas.conf
+```
+
 ```bash
 paru -Sy --sudo doas --needed $(shell grep -v '^#' pkglist.txt)
 ```
