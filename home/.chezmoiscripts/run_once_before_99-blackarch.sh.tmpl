@@ -1,5 +1,6 @@
 {{ if eq .chezmoi.osRelease.id "arch" -}}
 #!/bin/sh
+doas pacman-key --init
 curl -O https://www.blackarch.org/keyring/blackarch-keyring.pkg.tar.xz
 	     doas pacman --noconfirm -U blackarch-keyring.pkg.tar.xz
 	     rm blackarch-keyring.pkg.tar.xz
