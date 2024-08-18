@@ -1,0 +1,9 @@
+[KTextEditor Renderer]
+Auto Color Theme Selection=false
+Color Theme=Nord
+Font=Roboto Mono [GOOG],11,-1,5,50,0,0,0,0,0
+
+[UiSettings]
+ColorScheme=KvAdaptaDark
+
+

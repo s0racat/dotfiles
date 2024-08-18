@@ -1,0 +1,48 @@
+[user]
+	name = Takumi
+	email = takuoh@tuta.io
+	signingkey = ECCE3B658A852C82
+[includeIf "gitdir:~/project/github.com/"]
+        path = ~/.config/git/github
+[core]
+	editor = nvim
+	filemode = false
+[push]
+	default = current
+[color]
+	ui = auto
+[alias]
+	co = checkout
+	ci = commit
+	st = status
+	br = branch
+	hist = log --pretty=format:"%C(green)%h\\ %C(yellow)[%ad]%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=relative
+	res = reset --hard
+	nyan = !nyancat
+[credential "https://github.com"]
+	helper = !/usr/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = !/usr/bin/gh auth git-credential
+[pager]
+    diff = delta
+    log = delta
+    reflog = delta
+    show = delta
+
+[interactive]
+    diffFilter = delta --color-only
+
+[delta]
+    features = side-by-side line-numbers decorations
+    whitespace-error-style = 22 reverse
+    syntax-theme = Nord
+
+
+[include]
+	path = $HOME/.config/git/alias
+[commit]
+	gpgsign = true
+[gpg]
+	program = gpg2
+[safe]
+	directory = /opt/flutter

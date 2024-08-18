@@ -1,0 +1,21 @@
+{{ if eq .chezmoi.osRelease.id "arch" -}}
+#!/bin/sh
+if ! grep -q 'pam_gnome_keyring.so auto_start$' /etc/pam.d/login; then
+	tmpdir=$(mktemp -d)
+	awk '
+	/^auth *include *system-local-login$/ {
+	print
+	print "auth       optional     pam_gnome_keyring.so"
+	next
+}
+/^password *include *system-local-login$/ {
+print
+print "session    optional     pam_gnome_keyring.so auto_start"
+next
+}
+{ print }
+' /etc/pam.d/login > $tmpdir/login
+doas install -m 644 -o root -g root $tmpdir/login /etc/pam.d/login
+fi
+{{ end -}}
+

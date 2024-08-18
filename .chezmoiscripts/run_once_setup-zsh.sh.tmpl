@@ -1,0 +1,6 @@
+{{ if eq .chezmoi.osRelease.id "arch" -}}
+#!/bin/sh
+doas pacman -Sy zsh --noconfirm
+chsh -s /bin/zsh
+{{ end -}}
+

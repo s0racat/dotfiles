@@ -1,0 +1,23 @@
+#!/bin/sh
+export GTK_IM_MODULE=fcitx \
+    QT_IM_MODULE=fcitx \
+    XMODIFIERS=@im=fcitx \
+    SSH_AUTH_SOCK=$XDG_RUNTIME_DIR/gcr/ssh \
+    GTK_THEME=Nordic-bluish-accent \
+    GDK_DPI_SCALE= \
+    QT_QPA_PLATFORMTHEME=qt5ct \
+    QT_AUTO_SCREEN_SCALE_FACTOR=1 \
+    QT_USE_PHYSICAL_DPI=1 \
+    MOZ_USE_XINPUT2=1 \
+    WINIT_X11_SCALE_FACTOR=randr \
+    LIBVA_DRI3_DISABLE=1 \
+    MOZ_DBUS_REMOTE=1
+
+if [[ $(hostname) == "13-an0xxx" ]] ; then
+	export LIBVA_DRIVER_NAME=iHD
+elif [[ $(hostname) == "um690pro" ]]; then
+	export LIBVA_DRIVER_NAME=radeonsi
+	export VDPAU_DRIVER=radeonsi
+fi
+
+# QT_AUTO_SCREEN_SCALE_FACTORはkdeでは強制的に0に設定される

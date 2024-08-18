@@ -1,0 +1,6 @@
+[Desktop Entry]
+Exec=wezterm-mux-server --daemonize
+Icon=dialog-scripts
+Name=wezterm-mux-server
+Type=Application
+X-KDE-AutostartScript=true

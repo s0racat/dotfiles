@@ -1,0 +1,3 @@
+--downloader aria2c
+--downloader-args '--conf-path ~/.config/aria2/aria2.conf'
+

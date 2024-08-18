@@ -1,0 +1,73 @@
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f "$ZDOTDIR"/.p10k.zsh ]] || source $ZDOTDIR/.p10k.zsh
+
+# powerlevel10k
+[ -f /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme ] && source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
+
+# zsh-completion
+[ -d /usr/share/zsh/site-functions ] && fpath=(/usr/share/zsh/site-functions/ $fpath)
+autoload -U compinit; compinit -d "$XDG_STATE_HOME"/zsh/zcompdump-"$ZSH_VERSION"
+
+# zsh-autosuggestions
+[ -f /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh ] && source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+# zsh-syntax-highlighting
+[ -f /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ] && source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+setopt auto_cd
+setopt correct
+setopt nolistbeep
+setopt hist_ignore_dups
+setopt hist_ignore_all_dups
+setopt share_history
+setopt interactivecomments
+
+# nord-dircolors
+test -r $ZDOTDIR/dir_colors && eval $(dircolors $ZDOTDIR/dir_colors)
+
+# chpwd
+command -v exa &>/dev/null && function chpwd() { exa }
+
+# completion
+zstyle ':completion:*' menu select
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
+zstyle ':completion:*' list-colors "${LS_COLORS}"
+zstyle ':completion:*:*:*:*:processes' command "ps -u $USERNAME -o pid,user,comm -w -w"
+zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#) ([0-9a-z-]#)*=01;34=0=01'
+
+# pkgfile
+[ -f /usr/share/doc/pkgfile/command-not-found.zsh ] && source /usr/share/doc/pkgfile/command-not-found.zsh
+
+# thefuck
+command -v thefuck &>/dev/null && eval $(thefuck --alias)
+
+# zoxide
+command -v zoxide &>/dev/null && eval "$(zoxide init zsh)"
+
+# alias
+[ -f $ZDOTDIR/aliasrc ] && source $ZDOTDIR/aliasrc
+
+
+# fzf-keybind
+[ -f /usr/share/fzf/key-bindings.zsh ] && source /usr/share/fzf/key-bindings.zsh
+
+# Use pinentry-curses in gpg
+#export GPG_TTY=$TTY
+
+bindkey -e
+
+# edit-command-line
+autoload -U edit-command-line
+zle -N edit-command-line
+bindkey '\C-x\C-e' edit-command-line
+
+# <C-d> to exit zsh
+exit_zsh() { exit }
+zle -N exit_zsh
+bindkey '^D' exit_zsh
+
+# Java
+[[ -n $GDK_DPI_SCALE ]] && export _JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel -Dsun.java2d.opengl=true -Dglass.gtk.uiScale=$GDK_DPI_SCALE" || export _JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel -Dsun.java2d.opengl=true"
+
+eval "$(starship init zsh)"
+export LANG=en_US.UTF-8

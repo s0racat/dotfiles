@@ -1,0 +1,8 @@
+[Unit]
+Description=Yet Another SKK server
+
+[Service]
+ExecStart=/bin/yaskkserv2 --listen-address 127.0.0.1 --google-suggest %h/.local/share/fcitx5/skk/dictionary.yaskkserv2 --no-daemonize
+
+[Install]
+WantedBy=default.target

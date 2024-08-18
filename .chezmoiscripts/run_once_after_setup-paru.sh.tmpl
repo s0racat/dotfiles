@@ -1,0 +1,9 @@
+{{ if eq .chezmoi.osRelease.id "arch" -}}
+#!/bin/sh
+curl https://aur.archlinux.org/cgit/aur.git/snapshot/paru-bin.tar.gz -o - |tar xvfz  -
+cd paru-bin      
+makepkg -s
+doas pacman -U --noconfirm `ls | grep '^paru-bin-[^-]*-[^-]*-x86_64\.pkg\.tar\.zst$'`
+
+{{ end -}}
+
