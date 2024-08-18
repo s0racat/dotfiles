@@ -4,7 +4,7 @@ doas pacman -Sy --noconfirm base-devel git aria2
 curl https://aur.archlinux.org/cgit/aur.git/snapshot/paru-bin.tar.gz -o - |tar xvfz  -
 cd paru-bin      
 makepkg -s
-doas pacman -U --noconfirm *.tar.zst
+doas pacman -U --noconfirm paru-bin*.tar.zst
 
 {{ end -}}
 
