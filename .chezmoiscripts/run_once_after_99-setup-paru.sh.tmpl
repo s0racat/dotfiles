@@ -1,9 +1,10 @@
 {{ if eq .chezmoi.osRelease.id "arch" -}}
 #!/bin/sh
+doas pacman -Sy --noconfirm base-devel git aria2
 curl https://aur.archlinux.org/cgit/aur.git/snapshot/paru-bin.tar.gz -o - |tar xvfz  -
 cd paru-bin      
 makepkg -s
-doas pacman -U --noconfirm `ls | grep '^paru-bin-[^-]*-[^-]*-x86_64\.pkg\.tar\.zst$'`
+doas pacman -U --noconfirm *.tar.zst
 
 {{ end -}}
 
