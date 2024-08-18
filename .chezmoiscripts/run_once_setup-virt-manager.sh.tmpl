@@ -1,7 +1,6 @@
 {{ if eq .chezmoi.osRelease.id "arch" -}}
 #!/bin/sh
-
 doas pacman -Sy virt-manager --noconfirm --needed
-	       doas gpasswd -a $USER libvirt
+doas gpasswd -a $USER libvirt
 {{ end -}}
 

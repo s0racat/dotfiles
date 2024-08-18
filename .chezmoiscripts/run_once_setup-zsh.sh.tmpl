@@ -1,6 +1,6 @@
 {{ if eq .chezmoi.osRelease.id "arch" -}}
 #!/bin/sh
-doas pacman -Sy zsh --noconfirm
+doas pacman -Sy zsh --noconfirm --needed
 chsh -s /bin/zsh
 {{ end -}}
 
