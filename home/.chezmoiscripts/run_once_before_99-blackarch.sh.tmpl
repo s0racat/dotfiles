@@ -1,0 +1,11 @@
+{{ if eq .chezmoi.osRelease.id "arch" -}}
+#!/bin/sh
+curl -O https://www.blackarch.org/keyring/blackarch-keyring.pkg.tar.xz
+	     doas pacman --noconfirm -U blackarch-keyring.pkg.tar.xz
+	     rm blackarch-keyring.pkg.tar.xz
+	     doas pacman-key --lsign-key F9A6E68A711354D84A9B91637533BAFE69A25079
+
+
+
+{{ end -}}
+
