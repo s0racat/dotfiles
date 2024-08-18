@@ -1,0 +1,9 @@
+[Touchpad pressure override]
+MatchUdevType=touchpad
+MatchName=*SynPS/2 Synaptics TouchPad
+MatchDMIModalias=dmi:*svnHP:pnHPPavilionLaptop13-an0xxx*
+#AttrPressureRange=down:up, down = press touchpad, up = release touchpad
+#AttrPressureRange=40:30
+#AttrThumbPressureThreshold=90
+AttrPalmPressureThreshold=80
+

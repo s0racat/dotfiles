@@ -1,0 +1,6 @@
+evdev:name:SynPS/2 Synaptics TouchPad:dmi:*svnHP:pnHPPavilionLaptop13-an0xxx*
+ EVDEV_ABS_00=1307:5656:39
+ EVDEV_ABS_01=1093:4699:63
+ EVDEV_ABS_35=1307:5656:39
+ EVDEV_ABS_36=1093:4699:63
+

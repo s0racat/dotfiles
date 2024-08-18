@@ -1,0 +1,11 @@
+[Trigger]
+Type = Package
+Operation = Remove
+Operation = Install
+Operation = Upgrade
+Target = *
+
+[Action]
+Description = Removing obsolete cached package files...
+When = PostTransaction
+Exec = /bin/sh -c 'paccache -rvuk 0; paccache -rvk 1'

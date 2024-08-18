@@ -1,0 +1,22 @@
+#!/bin/bash
+# /etc/rc.local -- rc.local for Artix Linux
+#
+# Enter your custom commands here. It will be executed on stage 2
+# before running services.
+if [[ $(hostname) == "13-an0xxx" ]]; then
+	# Fix for no sound from internal speakers when rebooting from Windows
+
+	hda-verb /dev/snd/hwC0D0 0x20 SET_COEF_INDEX 0x10 &> /dev/null
+	hda-verb /dev/snd/hwC0D0 0x20 SET_PROC_COEF 0x0120 &> /dev/null
+
+	hda-verb /dev/snd/hwC0D0 0x20 SET_COEF_INDEX 0x0d &> /dev/null
+	hda-verb /dev/snd/hwC0D0 0x20 SET_PROC_COEF 0xa023 &> /dev/null
+	# Fix for no mic and headphone jack switching when rebooting from Windows
+	hda-verb /dev/snd/hwC0D0 0x20 SET_COEF_INDEX 0x45 &> /dev/null
+	hda-verb /dev/snd/hwC0D0 0x20 SET_PROC_COEF 0x5289 &> /dev/null
+	hda-verb /dev/snd/hwC0D0 0x20 SET_COEF_INDEX 0x46 &> /dev/null
+	hda-verb /dev/snd/hwC0D0 0x20 SET_PROC_COEF 0x0004 &> /dev/null
+	# Headphone Static Fix
+	hda-verb /dev/snd/hwC0D0  0x20 SET_COEF_INDEX 0x67 &> /dev/null
+	hda-verb /dev/snd/hwC0D0  0x20 SET_PROC_COEF 0x3000 &> /dev/null
+fi
