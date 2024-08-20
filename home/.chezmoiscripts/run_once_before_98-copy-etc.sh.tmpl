@@ -1,9 +1,11 @@
 {{ if eq .chezmoi.osRelease.id "arch" -}}
 #!/bin/sh
 doas cp -r '{{ joinPath .chezmoi.sourceDir "../etc" }}' /
-    echo -e "tmpfs\t/home/$USER/.cache\ttmpfs\tnoatime,nodev,nosuid,size=2G\t0\t0\ntmpfs\t/tmp\ttmpfs\trw,nodev,nosuid\t0\t0" | doas tee -a /etc/fstab 
-	doas chmod 700 /boot /etc/{iptables,nftables.conf} || true 
-	doas chmod -c 0400 /etc/doas.conf
+if ! grep "tmpfs\s\+/home/$USER/.cache\s\+tmpfs\s\+noatime,nodev,nosuid,size=2G\s\+0\s\+0$" /etc/fstab; then
+echo -e "tmpfs\t/home/$USER/.cache\ttmpfs\tnoatime,nodev,nosuid,size=2G\t0\t0\ntmpfs\t/tmp\ttmpfs\trw,nodev,nosuid\t0\t0" | doas tee -a /etc/fstab 
+fi
+doas chmod 700 /boot /etc/{iptables,nftables.conf} || true 
+doas chmod -c 0400 /etc/doas.conf
 
 {{ end -}}
 
