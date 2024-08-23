@@ -1,0 +1,8 @@
+#!/bin/sh
+cd $(mktemp -d)
+curl https://github.com/EliverLara/Nordic/archive/refs/heads/master.zip -OL
+unzip master.zip 'Nordic-master/kde/kvantum/*'
+cd Nordic-master/kde/kvantum
+rm *.tar.xz
+cp -r * ~/.config/Kvantum 
+
