@@ -1,4 +1,5 @@
 #!/bin/sh
+doas pacman -Sy --noconfirm --needed unzip curl
 cd $(mktemp -d)
 curl https://github.com/EliverLara/Nordic/archive/refs/heads/master.zip -OL
 unzip master.zip 'Nordic-master/kde/kvantum/*'

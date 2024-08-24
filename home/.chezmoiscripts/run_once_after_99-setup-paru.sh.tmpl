@@ -1,6 +1,6 @@
 {{ if eq .chezmoi.osRelease.id "arch" -}}
 #!/bin/sh
-doas pacman -Sy --noconfirm --needed base-devel git aria2
+doas pacman -Sy --noconfirm --needed base-devel git aria2 curl
 cd $(mktemp -d)
 curl https://aur.archlinux.org/cgit/aur.git/snapshot/paru-bin.tar.gz -o - |tar xvfz  -
 cd paru-bin      

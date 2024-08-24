@@ -1,6 +1,6 @@
 {{ if eq .chezmoi.osRelease.id "arch" -}}
 #!/bin/sh
-doas pacman -Sy skk-jisyo --noconfirm --needed
+doas pacman -Sy skk-jisyo curl --noconfirm --needed
 paru -S --noconfirm --needed yaskkserv2-bin
 curl -L 'https://raw.github.com/skk-dev/dict/master/SKK-JISYO.edict' -o ~/.local/share/fcitx5/skk/SKK-JISYO.edict
 yaskkserv2_make_dictionary /usr/share/skk/SKK-JISYO.L ~/.local/share/fcitx5/skk/SKK-JISYO.edict --dictionary-filename=$HOME/.local/share/fcitx5/skk/dictionary.yaskkserv2

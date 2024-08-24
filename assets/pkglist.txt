@@ -149,7 +149,6 @@ kmag
 kscreen
 kvantum
 kvantum-qt5
-kvantum-theme-nordic-git
 lazygit
 lib32-alsa-lib
 lib32-alsa-plugins
@@ -299,7 +298,6 @@ syncthing
 sysfsutils
 sysstat
 system-config-printer
-systemd-rc-local
 tailscale
 tcpdump
 telegram-desktop
