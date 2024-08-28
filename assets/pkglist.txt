@@ -276,6 +276,7 @@ shellcheck-bin
 shim-signed
 signal-desktop
 sl
+slack-desktop
 slurp
 smartmontools
 smbclient
