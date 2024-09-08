@@ -65,7 +65,7 @@ user_pref("app.shield.optoutstudies.enabled", false);
 user_pref("datareporting.healthreport.uploadEnabled", false);
 
 // Enable titlebar
-user_pref("browser.tabs.inTitlebar", 0);
+//user_pref("browser.tabs.inTitlebar", 0);
 
 user_pref("browser.urlbar.showSearchSuggestionsFirst", false);
 
