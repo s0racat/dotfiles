@@ -74,5 +74,8 @@ user_pref("browser.tabs.unloadOnLowMemory", true);
 // user_pref("widget.wayland.fractional-scale.enabled", true);
 user_pref("privacy.sanitize.useOldClearHistoryDialog", true);
 
+user_pref("sidebar.revamp", true);
+user_pref("sidebar.verticalTabs", true);
+
 // Check syntax
 user_pref("_user.js.parrot", "Everything is OK.");
