@@ -14,9 +14,9 @@ end
 
 -- For example, changing the color scheme:
 config.color_scheme = 'nord'
-config.font = wezterm.font 'UDEV Gothic 35NFLG'
+--config.font = wezterm.font 'UDEV Gothic 35NFLG'
 -- config.font_size = 11.5
-config.use_ime = false
+--config.use_ime = false
 -- config.enable_tab_bar = false
 config.tab_bar_at_bottom = true
 config.leader = { key = 's', mods = 'CTRL', timeout_milliseconds = 1000 }
@@ -110,6 +110,7 @@ config.keys = {
 	{ key = "k", mods = "LEADER", action = wezterm.action { ActivatePaneDirection = "Up" } },
 	{ key = "l", mods = "LEADER", action = wezterm.action { ActivatePaneDirection = "Right" } },
 	{ key = "c", mods = "LEADER", action = wezterm.action { SpawnTab = "CurrentPaneDomain" } },
+	{ key = 'L', mods = 'CTRL',   action = wezterm.action.ShowDebugOverlay },
 }
 config.unix_domains = {
 	{
@@ -121,7 +122,7 @@ config.unix_domains = {
 -- `wezterm connect unix` by default, connecting to the unix
 -- domain on startup.
 -- If you prefer to connect manually, leave out this line.
-config.default_gui_startup_args = { 'connect', 'unix' }
+--config.default_gui_startup_args = { 'connect', 'unix' }
 config.inactive_pane_hsb = {
 	saturation = 0.9,
 	brightness = 0.5,
@@ -142,12 +143,13 @@ config.inactive_pane_hsb = {
 -- }
 
 
-config.set_environment_variables = {
-	-- This changes the default prompt for cmd.exe to report the
-	-- current directory using OSC 7, show the current time and
-	-- the current directory colored in the prompt.
-	SSH_AUTH_SOCK = os.getenv('XDG_RUNTIME_DIR') .. '/gcr/ssh'
-}
-
+--config.set_environment_variables = {
+-- This changes the default prompt for cmd.exe to report the
+-- current directory using OSC 7, show the current time and
+-- the current directory colored in the prompt.
+--	SSH_AUTH_SOCK = os.getenv('XDG_RUNTIME_DIR') .. '/gcr/ssh'
+--}
+config.default_domain = "WSL:Debian"
+--config.treat_east_asian_ambiguous_width_as_wide = true
 -- and finally, return the configuration to wezterm
 return config
